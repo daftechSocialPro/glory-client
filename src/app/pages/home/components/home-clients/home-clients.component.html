@@ -1,0 +1,28 @@
+
+<section class="brand-wrap1">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-4">
+                <div class="brand-box1 wow fadeInUp" data-wow-delay=".2s">
+                    <span class="section-subtitle">Our Clients</span>
+                    <h2 class="section-title">We're going to became partners for the long run</h2>
+                    <p>Ghen an unknown printer took a galley of type andscr
+                        ambledit to make a type specimen book has survived
+                        not only five centuries but also.</p>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    <div *ngFor="let item of clients" class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="brand-box2 wow fadeInUp" data-wow-delay=".4s">
+                            <div class="item-img">
+                                <a href="index.html"><img [src]="getImagePath(item.attributes.image)" alt="brand"></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

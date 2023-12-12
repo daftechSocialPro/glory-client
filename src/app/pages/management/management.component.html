@@ -1,0 +1,39 @@
+<app-nav2></app-nav2>
+
+<section class="team-wrap1 team-wrap3"  style="padding: 80px; background-color: #f5f8fd;">
+    <div class="container" >
+      <div class="item-heading-center mb-20">
+        <span class="section-subtitle">Expertise Is Here</span>
+        <h2 class="section-title">MANAGMENT TEAMS </h2>
+        <div class="bg-title-wrap" style="display: block">
+          <span class="background-title solid">Our MANAGMENT TEAMS</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12" *ngFor="let item of managmntteam; let i = index;">
+          <div class="team-box-6 wow fadeInUp" data-wow-delay=".6s">
+            <div class="item-img">
+              <a href="agent-lists1.html">
+                <img [src]="getImagePath(item.attributes.image)" alt="team" width="184" height="184" />
+              </a>
+            </div>
+            <div class="item-content">
+              <div class="item-title">
+                <h3><a href="">{{item.attributes.name}}</a></h3>
+                <h4 class="item-subtitle">
+                  <a href="">{{item.attributes.position}}</a>
+                </h4>
+              </div>
+              <div class="item-contact">
+                <div class="item-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="item-phn-no">Call: {{item.attributes.phonenumber}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<app-footer></app-footer>

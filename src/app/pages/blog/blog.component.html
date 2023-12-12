@@ -1,0 +1,72 @@
+<app-nav2></app-nav2>
+
+
+      <section class="blog-wrap5"  style="background-color: #f5f8fd;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-8">
+                    <div class="item-heading-left">
+                        <span class="section-subtitle">What’s New Trending</span>
+                        <h2 class="section-title">Blog & Posts</h2>
+                        <div class="bg-title-wrap" style="display: block;">
+                            <span class="background-title solid">Blogs</span>
+                        </div>
+      
+                    </div>
+                </div>
+              
+            </div>
+            <div class="row gutters-40">
+                <div class="col-lg-8 widget-break-lg sidebar-widget" style="display: flex; flex-wrap: wrap;">
+                    <div class="widget widget-search-box" style="background-color: transparent; float: left; flex: 1;">
+                      <h3 class="widget-subtitle">Search</h3>
+                      <div class="widget-form-box">
+                        <input class="form-control" type="text" [(ngModel)]="searchQuery" (ngModelChange)="searchBlogs()" placeholder="What are you looking for?" style="background-color: transparent;">
+                        <div class="item-search"><i class="fas fa-search"></i></div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-lg-12">
+                  <div class="row">
+                    <div class="col-lg-6"*ngFor="let blog of paginatedBlogs">
+                      <div class="blog-box1 blog-box2 wow fadeInUp" data-wow-delay=".4s">
+                        <div class="item-img img-style-2">
+                          <a href="blog1.html"><img [src]="getImagePath(blog.attributes.image)" alt="blog" width="739" height="399"></a>
+                        </div>
+                        <div class="item-content content-style-2">
+                          <div class="heading-title title-style-2">
+                            <h3><a href="single-listing1.html">{{ blog.attributes.title }}</a></h3>
+                            <p>{{ blog.attributes.description }}</p>
+                          </div>
+                          <div class="blog-button-style2">
+                            <a (click)="blogDetaile(blog.id)" class="item-btn">Read More<i class="fas fa-arrow-right"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="pagination-style-1">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" (click)="goToPage(currentPage - 1)" [class.disabled]="currentPage === 1" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                      </li>
+                      <li class="page-item" *ngFor="let page of pages">
+                        <a class="page-link" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" (click)="goToPage(currentPage + 1)" [class.disabled]="currentPage === totalPages" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </section>
+
+<app-footer></app-footer>
