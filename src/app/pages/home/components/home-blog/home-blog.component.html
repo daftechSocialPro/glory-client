@@ -1,0 +1,43 @@
+<section class="blog-wrap1">
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-lg-6 col-md-6 col-sm-8">
+              <div class="item-heading-left">
+                  <span class="section-subtitle">What’s New Trending</span>
+                  <h2 class="section-title">Latest Blog & Posts</h2>
+                  <div class="bg-title-wrap" style="display: block;">
+                      <span class="background-title solid">Blogs</span>
+                  </div>
+
+              </div>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-4">
+              <div class="heading-button">
+                  <a (click)="allBlogs()" class="heading-btn">See All Blogs</a>
+              </div>
+          </div>
+      </div>
+      <div class="row justify-content-center">
+          <div *ngFor="let blog of blogs" class="col-lg-4 col-md-6">
+              <div  class="blog-box1 wow fadeInUp" data-wow-delay=".4s" (click)="blogDetaile(blog.id)">
+                  <div class="item-img">
+                      <a href="blog1.html"><img  [src]="getImagePath(blog.attributes.image)" alt="blog" width="520" height="350"></a>
+                  </div>
+                  <div class="thumbnail-date">
+                    <div class="popup-date">
+                      <span class="day">{{ getDay(blog.attributes.createdAt) }}</span>
+                      <span class="month">{{ getMonth(blog.attributes.createdAt) }}</span>
+                    </div>
+                  </div>
+                  <div class="item-content">
+                      <div class="heading-title">
+                          <h3><a href="blog1.html">{{blog.attributes.title}}</a></h3>
+                      </div>
+                      <p>{{blog.attributes.description}}</p>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+<section class="why-choose-wrap1">
+    <div class="shape-img1 wow fadeInRight" data-wow-delay=".3s">
+        <img src="../../../../../assets/img/figure/shape9.png" alt="shape" width="253" height="212">
+    </div>
+    <div class="container">
+        <div class="item-heading-center mb-20">
+            <span class="section-subtitle">People Like Us</span>
+            <h2 class="section-title">Our Services</h2>
+            <div class="bg-title-wrap" style="display: block;">
+                <span class="background-title solid">Why Choose Us</span>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngFor="let item of chooses" class="col-lg-4">
+                <div class="choose-box1 wow fadeInUp" data-wow-delay=".2s">
+                    <div class="choose-shape1">
+                        <a href="index3.html"><img [src]="getImagePath(item.attributes.logo)" alt="shape" width="59" height="63"></a>
+                    </div>
+                    <h3 class="item-title"><a href="single-listing3.html">{{item.attributes.title}}</a></h3>
+                    <p>{{item.attributes.description}}</p>
+                </div>
+            </div>
+
+             </div>
+    </div>
+</section>

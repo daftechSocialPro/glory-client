@@ -1,0 +1,390 @@
+
+<app-nav2></app-nav2>
+<section class="single-listing-wrap1">
+    <div class="container">
+      <div class="single-property" >
+        <div class="content-wrapper">
+          <div class="property-heading">
+            <div class="row">
+              <div class="col-lg-6 col-md-12">
+                <div class="single-list-cate">
+                  <div class="item-categoery">{{singleproperties&&singleproperties.attributes.type}}</div>
+                </div>
+              </div>
+              <div class="col-lg-6 col-md-12">
+                <div class="single-list-price">{{singleproperties&&singleproperties.attributes.price}} ETB</div>
+              </div>
+            </div>
+            <div class="row align-items-center">
+              <div class="col-lg-8 col-md-12">
+                <div class="single-verified-area">
+                  <div class="item-title">
+                    <h3>
+                      <a href="single-listing2.html"
+                        >{{singleproperties&&singleproperties.attributes.name}}</a
+                      >
+                    </h3>
+                  </div>
+                </div>
+                <div class="single-item-address">
+                  <ul>
+                    <li>
+                      <i class="fas fa-map-marker-alt"> {{singleproperties&&singleproperties.attributes.location}}</i>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+   
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-8">
+   <div class="gallery-container">
+  <div class="product-gallery__featured">
+    <owl-carousel-o [options]="{items: 1, dots: false, margin: 8}" #owlCar>
+      <ng-container *ngFor="let image of productImages">
+        <ng-template carouselSlide [id]="image.url" [width]="imageSize">
+          <img [src]="getImagePath2(image.url)" alt="Product Image">
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+  
+  <div class="product-gallery__carousel">
+    <owl-carousel-o [options]="{items: 3, dots: false, margin: 5, autoWidth: true}">
+      <ng-container *ngFor="let image of productImages; let i = index">
+        <ng-template carouselSlide [id]="image.url + i" [width]="80">
+          <a (click)="owlCar.to(image.url); changeImage(image.url + i)">
+            <img [src]="getImagePath2(image.url)" alt="Product Thumbnail"
+                 [ngClass]="{'product-gallery__carousel-item--active': selectedImage === image.url + i || (i === 0 && !selectedImage)}">
+          </a>
+        </ng-template>
+      </ng-container>
+    </owl-carousel-o>
+  </div>
+</div>
+         
+              <div class="single-listing-box1">
+                <div class="overview-area">
+                  <h3 class="item-title">Overview</h3>
+                  <div class="gallery-icon-box">
+                    <div class="item-icon-box">
+                      <div class="item-icon">
+                        <i class="flaticon-comment"></i>
+                      </div>
+                      <ul class="item-number">
+                        <li>ID No :</li>
+                        <li class="deep-clr">{{singleproperties&&singleproperties.id}}</li>
+                      </ul>
+                    </div>
+                    <div class="item-icon-box">
+                      <div class="item-icon">
+                        <i class="flaticon-home"></i>
+                      </div>
+                      <ul class="item-number">
+                        <li>Type :</li>
+                        <li class="deep-clr">{{singleproperties&&singleproperties.attributes.type2}}</li>
+                      </ul>
+                    </div>
+                    <div class="item-icon-box">
+                      <div class="item-icon">
+                        <i class="flaticon-bed"></i>
+                      </div>
+                      <ul class="item-number">
+                        <li>Bed Room :</li>
+                        <li class="deep-clr">{{singleproperties&&singleproperties.attributes.beds}}</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="gallery-icon-box">
+                    <div class="item-icon-box">
+                      <div class="item-icon">
+                        <i class="flaticon-home"></i>
+                      </div>
+                      <ul class="item-number">
+                        <li>Area :</li>
+                        <li class="deep-clr">{{singleproperties&&singleproperties.attributes.area}} sqft</li>
+                      </ul>
+                    </div>
+                    <div class="item-icon-box">
+                      <div class="item-icon">
+                        <i class="fa fa-cutlery"></i>
+                      </div>
+                      <ul class="item-number">
+                        <li>Kitchen :</li>
+                        <li class="deep-clr">{{singleproperties&&singleproperties.attributes.kitchen}}</li>
+                      </ul>
+                    </div>
+                     <div class="item-icon-box">
+                      <div class="item-icon">
+                        <i class="flaticon-shower"></i>
+                      </div>
+                      <ul class="item-number">
+                        <li>Bath Room:</li>
+                        <li class="deep-clr">{{singleproperties&&singleproperties.attributes.bath}}</li>
+                      </ul>
+                    </div>
+             
+                  </div>
+                </div>
+                <div class="overview-area listing-area">
+                  <h3 class="item-title">Description</h3>
+                  <p>
+                    {{singleproperties&&singleproperties.attributes.description}}
+                  </p>
+                  </div>
+                <div
+                  class="overview-area single-details-box table-responsive"
+                >
+                  <h3 class="item-title">Details</h3>
+                  <table class="table-box1">
+                    <tr>
+                      <td class="item-bold">Id No</td>
+                      <td> {{singleproperties&&singleproperties.id}}</td>
+                      <td class="item-bold">Price</td>
+                      <td> {{singleproperties&&singleproperties.attributes.price}} ETB</td>
+                    </tr>
+                    <tr>
+                      <td class="item-bold">Property Type</td>
+                      <td> {{singleproperties&&singleproperties.attributes.type2}}</td>
+                      <td class="item-bold">Bath Rooms</td>
+                      <td> {{singleproperties&&singleproperties.attributes.bath}}</td>
+                            </tr>
+                    <tr>
+                      <td class="item-bold">Bed Rooms</td>
+                      <td> {{singleproperties&&singleproperties.attributes.beds}}</td>
+                      <td class="item-bold">Property Status</td>
+                      <td> {{singleproperties&&singleproperties.attributes.type}}</td>
+                    </tr>
+                    <tr>
+                      <td class="item-bold">Kitchen</td>
+                      <td> {{singleproperties&&singleproperties.attributes.kitchen}}</td>
+                      <td class="item-bold">Size</td>
+                      <td> {{singleproperties&&singleproperties.attributes.area}} sqft</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="overview-area ameniting-box">
+                  <h3 class="item-title">Features & Amenities</h3>
+                  <div class="row">
+                    <div class="col-lg-4" *ngFor="let few of features">
+                      <ul class="ameniting-list">
+                        <li><i class="fas fa-check-circle"></i>{{few.attributes.title}}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+               <div class="overview-area floor-plan-box">
+                  <h3 class="item-title">Floor Plans</h3>
+                  <div id="accordion" class="accordion">
+                    <div class="card">
+                      <div class="card-header">
+                        <div
+                          class="heading-title"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapseOne"
+                          aria-expanded="true"
+                          role="button"
+                        >
+                          <span>Floor Plan</span>
+                          <div class="card-list">
+                            <ul>
+                              <li>
+                                <i class="flaticon-bed"></i
+                                ><span>Beds: {{singleproperties&&singleproperties.attributes.beds}}</span>
+                              </li>
+                              <li>
+                                <i class="flaticon-shower"></i
+                                ><span>Baths: {{singleproperties&&singleproperties.attributes.bath}}</span>
+                              </li>
+                              <li>
+                                <i
+                                  class="flaticon-two-overlapping-square"
+                                ></i
+                                ><span>{{singleproperties&&singleproperties.attributes.area}}Sqft</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        id="collapseOne"
+                        class="collapse show"
+                        data-bs-parent="#accordion"
+                      >
+                        <div class="card-body">
+                          <div class="item-img">
+                            <img
+                            [src]="getImagePath3(singleproperties&&singleproperties.attributes.floorplan)"
+                              alt="shape"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                 
+                  </div>
+                </div>
+             
+                           </div>
+            </div>
+            <div class="col-lg-4 widget-break-lg sidebar-widget">
+              <div class="widget widget-contact-box">
+                <h3 class="widget-subtitle">Contact Agent</h3>
+                <div class="media d-flex">
+                  <div class="flex-shrink-0">
+                    <div class="item-logo">
+                      <img
+                        [src]="getImagePath3( agent&&agent.attributes.image)"
+                        alt="logo"
+                        width="100"
+                        height="100"
+                      />
+                    </div>
+                  </div>
+                  <div class="media-body flex-grow-1 ms-3">
+                    <h4 class="item-title">{{agent&&agent.attributes.name}}</h4>
+                    <div class="item-phn">
+                      {{agent&&agent.attributes.phonenumber}}
+                    </div>
+                    <div class="item-rating">
+                      <ul>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li><i class="fas fa-star"></i></li>
+                        <li class="rating-count">Reviews</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <ul class="wid-contact-button">
+                  <li>
+                    <a (click)="contactus()"
+                      ><i class="fas fa-comment"></i>Quick Chat</a
+                    >
+                  </li>
+                  <li>
+                    <a (click)="contactus()"
+                      ><i class="fas fa-share-alt"></i>Share</a
+                    >
+                  </li>
+                </ul>
+                <form class="contact-box rt-contact-form">
+                  <div class="row">
+                    <div class="form-group col-lg-12">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="fname"
+                        placeholder="Your Full Name"
+                        data-error="First Name is required"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-lg-12">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="phone"
+                        placeholder="Phone"
+                        data-error="Phone is required"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-lg-12">
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="phone"
+                        placeholder="E-mail"
+                        data-error="Phone is required"
+                        required
+                      />
+                    </div>
+                    <div class="form-group col-lg-12">
+                      <textarea
+                        name="comment"
+                        id="message"
+                        class="form-text"
+                        placeholder="Message"
+                        cols="30"
+                        rows="4"
+                        data-error="Message Name is required"
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="form-group col-lg-12">
+                      <div class="advanced-button">
+                        <button type="submit" class="item-btn">
+                          Send Message <i class="fas fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-response"></div>
+                </form>
+              </div>
+              <div class="widget widget-listing-box1">
+                <h3 class="widget-subtitle">Latest Listing</h3>
+                <div class="item-img">
+                  <a href=""
+                    ><img
+                    [src]="getImagePath(property.attributes.Images)"
+                      alt="widget"
+                      width="540"
+                      height="360"
+                  /></a>
+                  <div class="item-category-box1">
+                    <div class="item-category">{{property.attributes.type}}</div>
+                  </div>
+                </div>
+                <div class="widget-content">
+                  <div class="item-category10">
+                    <a href="">{{property.attributes.type2}}</a>
+                  </div>
+                  <h4 class="item-title">
+                    <a href=""
+                      >{{property.attributes.name}}</a
+                    >
+                  </h4>
+                  <div class="location-area">
+                    <i class="flaticon-maps-and-flags"></i>{{property.attributes.location}}, Ethiopia
+                  </div>
+                  <div class="item-price">{{property.attributes.price}}<span>/{{property.attributes.pricetype}}</span></div>
+                </div>
+                <div *ngFor="let item of properties" class="">
+                  <div class="widget-listing">
+                    <div class="item-img">
+                      <a href="single-listing2.html"
+                        ><img
+                        [src]="getImagePath(item.attributes.Images)"
+                          alt="widget"
+                          width="120"
+                          height="102"
+                      /></a>
+                    </div>
+                    <div class="item-content">
+                      <h5 class="item-title">
+                        <a href="single-listing2.html"
+                          >House Highland Ave Los Angeles</a
+                        >
+                      </h5>
+                      <div class="location-area">
+                        <i class="flaticon-maps-and-flags"></i>California
+                      </div>
+                      <div class="item-price">$3,000<span>/mo</span></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <app-footer/>

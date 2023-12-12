@@ -1,0 +1,55 @@
+.video-popup {
+    position: relative;
+  }
+  
+  .video-popup a {
+    display: block;
+    position: relative;
+    width: 626px;
+    height: 485px;
+  }
+  
+  .video-popup a .play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 48px;
+    opacity: 0.8;
+  }
+  
+  .video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .video-container {
+    position: relative;
+    width: 960px;
+    height: 615px;
+  }
+  
+  .video-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .video-container button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 9999;
+  }
+  
+  body {
+    overflow: hidden;
+  }

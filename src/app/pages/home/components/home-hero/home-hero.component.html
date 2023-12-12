@@ -1,0 +1,61 @@
+
+<section class="main-banner-wrap1 main-banner-wrap5" [style.backgroundImage]="'url(' + homeHeroImage + ')'" >
+    <div class="container">
+
+        
+        <div class="row">
+          
+            <div class="col-xl-12">
+                <div class="main-banner-box1 main-banner-box5">
+                    <h1 class="item-title wow fadeInUp" data-wow-delay=".4s">{{homeHero&&homeHero.attributes.motto}}</h1>
+                 
+                    <div class="banner-search-wrap">
+                        <div class="rld-main-search">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="box">
+                                        
+                                        <div class="box-top">
+                                            <div class="rld-single-input item">
+                                                <input type="text" placeholder="Enter Keyword here..." name="query" [(ngModel)]="Propertyparam.Query">
+                                            </div>
+                                           
+                                            <div class="rld-single-select ml-22" >
+                                                <select [(ngModel)]="Propertyparam.Category" class="select single-select" *ngIf="type&&type[0]" >
+                                                  <option value="1">Property Type</option>
+                                                  <option *ngFor="let item of type" [value]="item.attributes.type">{{item.attributes.type}}</option>
+                                                </select>
+                                              </div>
+
+                                              
+                                            <div class="rld-single-select item">
+                                                <select [(ngModel)]="Propertyparam.Location" *ngIf="sites&&sites[0]" class="select single-select mr-0">
+                                                    <option value="1">All Sites</option>
+                                                    <option *ngFor="let item of sites" [value]="item.attributes.sitename">{{item.attributes.sitename}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="item rt-filter-btn">
+                                                <div class="dropdown-filter item">
+                                                    <span>
+                                                        <i class="fas fa-sliders-h"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="filter-button-area">
+                                                    <a class="filter-btn" (click)="searchProperties()"><span>Search</span><i
+                                                            class="fas fa-search"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="item-para wow fadeInUp" data-wow-delay=".4s">{{homeHero&&homeHero.attributes.motto2}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
