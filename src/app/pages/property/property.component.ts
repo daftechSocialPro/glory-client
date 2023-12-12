@@ -12,8 +12,12 @@ import { HomeService } from 'src/app/service/home.service';
   styleUrls: ['./property.component.css']
 })
 export class PropertyComponent implements OnInit {
-  
-  properties: any
+  properties: any;
+  paginatedProperties: any;
+  currentPage: any;
+  itemsPerPage: any;
+  totalPages: any;
+  pages: any[] | any;
   propertie:any
   
   Propertyparam : propertyParams= {
@@ -22,45 +26,58 @@ export class PropertyComponent implements OnInit {
     PropertyType: '',
     Query: ''
   };
-  
-  
+
+  constructor(private homeService: HomeService, private commonService: CommonService,  private route: ActivatedRoute) { }
+
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       if (Object.keys(params).length > 0) {
         this.Propertyparam = params as propertyParams;
       }
     });
+    this.currentPage = 1;
+    this.itemsPerPage = 5; 
     this.getHomeProperties();
   }
 
+
   
- 
-  
-  constructor(private homeService: HomeService,private commonService:CommonService,
-    private http: HttpClient,
-    private route: ActivatedRoute) { }
-  
+
   getHomeProperties() {
     this.homeService.getHomeProperty(this.Propertyparam).subscribe({
       next: (res) => {
-        this.properties = res.data
+        this.properties = res.data;
+        this.totalPages = Math.ceil(this.properties.length / this.itemsPerPage);
+        this.updatePagination();
       }
-    })
+    });
   }
+ 
   
+
+  updatePagination() {
+    this.paginatedProperties = this.properties.slice(
+      (this.currentPage - 1) * this.itemsPerPage,
+      this.currentPage * this.itemsPerPage
+    );
+    this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
+
+  goToPage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+      this.updatePagination();
+    }
+  }
+
   getImagePath(image: any) {
-    
-    return this.commonService.createImagePath(image.data[0].attributes.url)
-    
+    return this.commonService.createImagePath(image.data[0].attributes.url);
   }
+
   getImagePath2(image: any) {
-    
-    return this.commonService.createImagePath(image.data.attributes.url)
-    
+    return this.commonService.createImagePath(image.data.attributes.url);
   }
- 
-  
- 
+
   
 }
 

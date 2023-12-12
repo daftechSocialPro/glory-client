@@ -43,7 +43,6 @@ import { propertyParams } from "../pages/property/property.component"
     getsingleProperty(id:any){
       return this.http.get<any>(this.baseUrl+`/properties/${id}?populate=*`)
     }
-
     getHomeWhyChooseUs(){
       return this.http.get<any>(this.baseUrl+'/whychooseuses?populate=*')
     }

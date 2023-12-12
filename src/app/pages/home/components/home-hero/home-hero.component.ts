@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonService } from 'src/app/service/common.service';
 import { HomeService } from 'src/app/service/home.service';
 import { Router } from '@angular/router';
+<<<<<<< HEAD
+=======
 import { propertyParams } from 'src/app/pages/property/property.component';
+>>>>>>> f5338362f21d00a245c612e4c137ce549ac274e1
 
 @Component({
   selector: 'app-home-hero',

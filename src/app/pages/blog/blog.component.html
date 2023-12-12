@@ -21,14 +21,14 @@
                     <div class="widget widget-search-box" style="background-color: transparent; float: left; flex: 1;">
                       <h3 class="widget-subtitle">Search</h3>
                       <div class="widget-form-box">
-                        <input class="form-control" type="text" placeholder="What are you looking for?" style="background-color: transparent;">
+                        <input class="form-control" type="text" [(ngModel)]="searchQuery" (ngModelChange)="searchBlogs()" placeholder="What are you looking for?" style="background-color: transparent;">
                         <div class="item-search"><i class="fas fa-search"></i></div>
                       </div>
                     </div>
                   </div>
                 <div class="col-lg-12">
                   <div class="row">
-                    <div class="col-lg-6" *ngFor="let blog of blogs">
+                    <div class="col-lg-6"*ngFor="let blog of paginatedBlogs">
                       <div class="blog-box1 blog-box2 wow fadeInUp" data-wow-delay=".4s">
                         <div class="item-img img-style-2">
                           <a href="blog1.html"><img [src]="getImagePath(blog.attributes.image)" alt="blog" width="739" height="399"></a>
@@ -48,17 +48,16 @@
                   <div class="pagination-style-1">
                     <ul class="pagination">
                       <li class="page-item">
-                        <a class="page-link" href="with-sidebar2.html" aria-label="Previous">
+                        <a class="page-link" (click)="goToPage(currentPage - 1)" [class.disabled]="currentPage === 1" aria-label="Previous">
                           <span aria-hidden="true">&laquo;</span>
                           <span class="sr-only">Previous</span>
                         </a>
                       </li>
-                      <li class="page-item"><a class="page-link active" href="with-sidebar2.html">1</a></li>
-                      <li class="page-item"><a class="page-link" href="with-sidebar2.html">2</a></li>
-                      <li class="page-item"><a class="page-link" href="with-sidebar2.html">3</a></li>
-                      <li class="page-item"><a class="page-link" href="with-sidebar2.html">4</a></li>
+                      <li class="page-item" *ngFor="let page of pages">
+                        <a class="page-link" (click)="goToPage(page)" [class.active]="currentPage === page">{{ page }}</a>
+                      </li>
                       <li class="page-item">
-                        <a class="page-link" href="with-sidebar2.html" aria-label="Next">
+                        <a class="page-link" (click)="goToPage(currentPage + 1)" [class.disabled]="currentPage === totalPages" aria-label="Next">
                           <span aria-hidden="true">&raquo;</span>
                           <span class="sr-only">Next</span>
                         </a>
