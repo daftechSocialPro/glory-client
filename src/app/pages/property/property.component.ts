@@ -1,6 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { SelectItem } from 'primeng/api';
 import { CommonService } from 'src/app/service/common.service';
 import { HomeService } from 'src/app/service/home.service';
+
 
 @Component({
   selector: 'app-property',
@@ -14,17 +18,33 @@ export class PropertyComponent implements OnInit {
   itemsPerPage: any;
   totalPages: any;
   pages: any[] | any;
+  propertie:any
+  
+  Propertyparam : propertyParams= {
+    Category: '',
+    Location: '',
+    PropertyType: '',
+    Query: ''
+  };
 
-  constructor(private homeService: HomeService, private commonService: CommonService) { }
+  constructor(private homeService: HomeService, private commonService: CommonService,  private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.queryParams.subscribe(params => {
+      if (Object.keys(params).length > 0) {
+        this.Propertyparam = params as propertyParams;
+      }
+    });
     this.currentPage = 1;
     this.itemsPerPage = 5; 
     this.getHomeProperties();
   }
 
+
+  
+
   getHomeProperties() {
-    this.homeService.getHomeProperty().subscribe({
+    this.homeService.getHomeProperty(this.Propertyparam).subscribe({
       next: (res) => {
         this.properties = res.data;
         this.totalPages = Math.ceil(this.properties.length / this.itemsPerPage);
@@ -32,6 +52,8 @@ export class PropertyComponent implements OnInit {
       }
     });
   }
+ 
+  
 
   updatePagination() {
     this.paginatedProperties = this.properties.slice(
@@ -55,4 +77,16 @@ export class PropertyComponent implements OnInit {
   getImagePath2(image: any) {
     return this.commonService.createImagePath(image.data.attributes.url);
   }
+
+  
+}
+
+
+
+
+export interface propertyParams {
+  Category : string;
+  Location : string;
+  PropertyType : string;
+  Query : string;
 }

@@ -5,48 +5,49 @@
             <div class="col-lg-4 widget-break-lg sidebar-widget">
                 <div class="widget widget-advanced-search">
                     <h3 class="widget-subtitle">Advanced Search</h3>
-                    <form action="https://radiustheme.com/demo/html/homlisti/index.html" class="map-forms map-form-style-2">
-                        <input type="text" class="form-control" placeholder="What are you looking for?">
+                    <form  class="map-forms map-form-style-2">
+                        <input [(ngModel)]="Propertyparam.Query" type="text" class="form-control" placeholder="What are you looking for?" name="query">
                         <div class="row">
                             <div class="col-lg-12 pl-15 mb-0">
                                 <div class="rld-single-select">
-                                    <select class="select single-select mr-0">
-                                        <option value="1">Property Type</option>
-                                        <option value="2">Living Room</option>
-                                        <option value="3">Shop</option>
+                                    <select [(ngModel)]="Propertyparam.PropertyType" class="select single-select mr-0" name="propertyType">
+                                        <option value="">All Types</option>
+                                        <option value="Apartment">Apartment</option>
+                                        <option value="Villa">Villa</option>
+                                        <option value="Office">Office</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-12 pl-15 mb-0">
                                 <div class="rld-single-select">
-                                    <select class="select single-select mr-0">
-                                        <option value="1">All Categories</option>
-                                        <option value="2">Rent</option>
-                                        <option value="3">Sell</option>
+                                    <select name="category" [(ngModel)]="Propertyparam.Category" class="select single-select mr-0" >
+                                        <option value="">All Categories</option>
+                                        <option value="For Rent">For Rent</option>
+                                        <option value="For Sell">For Sell</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-12 pl-15">
                                 <div class="rld-single-select">
-                                    <select class="select single-select mr-0">
-                                        <option value="1">Location</option>
-                                        <option value="2">22</option>
-                                        <option value="3">Getfam Hotel Hayahulet</option>
-                                        <option value="3">Gurd Shola</option>
-                                        <option value="3">Hayatt</option>
-                                    </select>
+                                    <select [(ngModel)]="Propertyparam.Location" class="select single-select mr-0" name="location">
+                                        <option value="">All Locations</option>
+                                        <option value="Hayahulet">Hayahulet</option>
+                                        <option value="Downey">Downey, California</option>
+                                        
+                                      </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="banner-search-wrap banner-search-wrap-2">
+                            <div class="rld-main-search rld-main-search3">
+                      
+                                <div class="filter-button">
+                                    <button (click)="getHomeProperties()" type="submit" class="filter-btn1 search-btn">Search<i class="fas fa-search"></i></button>
                                 </div>
                             </div>
                         </div>
                     </form>
-                    <div class="banner-search-wrap banner-search-wrap-2">
-                        <div class="rld-main-search rld-main-search3">
-                  
-                            <div class="filter-button">
-                                <a href="single-listing1.html" class="filter-btn1 search-btn">Search<i class="fas fa-search"></i></a>
-                            </div>
-                        </div>
-                                   </div>
+                    
                 </div>
                 <div class="widget widget-listing-box1">
                     <h3 class="widget-subtitle">Latest Listing</h3>

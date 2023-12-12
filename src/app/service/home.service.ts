@@ -1,7 +1,8 @@
-import { HttpClient } from "@angular/common/http"
+import { HttpClient, HttpParams } from "@angular/common/http"
 import { Injectable } from "@angular/core"
 import { DomSanitizer } from "@angular/platform-browser"
 import { environment } from "src/environments/environment.prod"
+import { propertyParams } from "../pages/property/property.component"
 
 @Injectable({
     providedIn: 'root',
@@ -21,14 +22,27 @@ import { environment } from "src/environments/environment.prod"
       return this.http.get<any>(this.baseUrl+'/clients?populate=*')
     }
 
-    getHomeProperty(){
-      return this.http.get<any>(this.baseUrl+'/properties?populate=*')
+    getHomeProperty(param?: propertyParams ){
+      let params = new HttpParams();
+  
+    if (param?.PropertyType) {
+      params = params.append('filters[type2][$containsi]', param?.PropertyType);
+    }
+    if (param?.Location) {
+      params = params.append('filters[location][$containsi]', param?.Location);
+    }
+    if (param?.Category) {
+      params = params.append('filters[type][$containsi]', param?.Category);
+    }
+    if (param?.Query) {
+      params = params.append('filters[name][$containsi]', param?.Query);
+    }
+      return this.http.get<any>(this.baseUrl+'/properties?populate=*', { params: params })
     }
     
     getsingleProperty(id:any){
       return this.http.get<any>(this.baseUrl+`/properties/${id}?populate=*`)
     }
-   
     getHomeWhyChooseUs(){
       return this.http.get<any>(this.baseUrl+'/whychooseuses?populate=*')
     }

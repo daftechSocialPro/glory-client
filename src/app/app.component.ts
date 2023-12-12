@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'glory-website-client';
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> f5338362f21d00a245c612e4c137ce549ac274e1
 }

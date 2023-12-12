@@ -63,6 +63,7 @@ export class BlogComponent implements OnInit {
       this.getPaginatedBlogs();
     }
   }
+
   getDay(createdAt: string) {
     const date = new Date(createdAt);
     return date.getDate();
@@ -85,5 +86,7 @@ export class BlogComponent implements OnInit {
   blogDetaile(id: string) {
     this.router.navigate(['/blog', id]);
   }
+      
+  }
 
-}
+
