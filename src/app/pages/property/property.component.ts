@@ -41,7 +41,6 @@ export class PropertyComponent implements OnInit {
     private route: ActivatedRoute) { }
   
   getHomeProperties() {
-    debugger
     this.homeService.getHomeProperty(this.Propertyparam).subscribe({
       next: (res) => {
         this.properties = res.data
