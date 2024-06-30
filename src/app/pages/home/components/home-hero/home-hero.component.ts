@@ -21,6 +21,8 @@ export class HomeHeroComponent implements OnInit {
   Propertyparam: propertyParams = {
     Category: '',
     Location: '',
+    BedsMin: 0,
+    BedsMax: 0,
     PropertyType: '',
     Query: '',
   };

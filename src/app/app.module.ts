@@ -32,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeCitesComponent } from './pages/home/home-cites/home-cites.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.component';
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +69,7 @@ import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.compon
     GalleriaModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxSliderModule,
   ],
   providers: [
     {
