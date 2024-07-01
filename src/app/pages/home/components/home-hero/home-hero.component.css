@@ -1,0 +1,61 @@
+.map-forms {
+    /* Existing styles */
+}
+
+.rld-single-select {
+    margin-bottom: 15px;
+}
+
+.beds-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.bed-slider {
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* Customize ngx-slider */
+.ngx-slider .ngx-slider-bar {
+    background-color: #ccc;
+    /* Change this to your desired color */
+}
+
+.ngx-slider .ngx-slider-bar .ngx-slider-pointer {
+    background-color: #007bff;
+    /* Change this to your desired color */
+    border-color: #007bff;
+    /* Change this to your desired color */
+}
+
+.ngx-slider .ngx-slider-bar .ngx-slider-full-bar {
+    background-color: #007bff;
+    /* Change this to your desired color */
+}
+
+.ngx-slider .ngx-slider-selection {
+    background-color: #007bff;
+    /* Change this to your desired color */
+}
+
+.bed-range-values {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.custom-slider {
+    .ngx-slider {
+        .ngx-slider-selection {
+            background: #6c8961 !important;
+        }
+
+        .ngx-slider-pointer {
+            background: #00a376 !important;
+        }
+    }
+}

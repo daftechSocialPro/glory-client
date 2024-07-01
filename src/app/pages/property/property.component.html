@@ -133,16 +133,22 @@
                                                     href="single-listing1.html">{{item.attributes.type2}}</a></div>
                                             <div class="item-content">
                                                 <div class="verified-area">
-                                                    <h3 class="item-title"><a href="single-listing1.html">Family House
-                                                            For Rent</a></h3>
+                                                    <h3 class="item-title"><a
+                                                            href="single-listing1.html">{{item.attributes.name}}</a>
+                                                    </h3>
                                                 </div>
                                                 <div class="location-area"><i
-                                                        class="flaticon-maps-and-flags"></i>Downey, California</div>
+                                                        class="flaticon-maps-and-flags"></i>{{item.attributes.location}}
+                                                </div>
                                                 <div class="item-categoery3">
                                                     <ul>
-                                                        <li><i class="flaticon-bed"></i>Beds: 03</li>
-                                                        <li><i class="flaticon-shower"></i>Baths: 02</li>
-                                                        <li><i class="flaticon-two-overlapping-square"></i>931 Sqft</li>
+                                                        <li><i class="flaticon-bed"></i>Beds: {{item.attributes.beds}}
+                                                        </li>
+                                                        <li><i class="flaticon-shower"></i>Baths:
+                                                            {{item.attributes.bath}}</li>
+                                                        <li><i
+                                                                class="flaticon-two-overlapping-square"></i>{{item.attributes.area}}
+                                                            Sqft</li>
                                                     </ul>
                                                 </div>
                                             </div>

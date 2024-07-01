@@ -3,6 +3,7 @@ import { CommonService } from 'src/app/service/common.service';
 import { HomeService } from 'src/app/service/home.service';
 import { Router } from '@angular/router';
 import { propertyParams } from 'src/app/pages/property/property.component';
+import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-home-hero',
@@ -18,11 +19,17 @@ export class HomeHeroComponent implements OnInit {
   keywords: any;
   selectedType: any;
   selectedSite: any;
+  value: number = 1;
+  highValue: number = 4;
+  options: Options = {
+    floor: 1,
+    ceil: 15,
+  };
   Propertyparam: propertyParams = {
     Category: '',
     Location: '',
-    BedsMin: 0,
-    BedsMax: 0,
+    BedsMin: 1,
+    BedsMax: 15,
     PropertyType: '',
     Query: '',
   };

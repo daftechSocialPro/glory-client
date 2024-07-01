@@ -1,93 +1,85 @@
 <app-nav2></app-nav2>
 <section class="contact-wrap" style="background-color: #f5f8fd;">
-    <div class="container" >
-        <div class="row" >
-            <div class="col-lg-12" >
-                <div class="contact-box1">
-                    <div class="contact-img">
-                        <img src="../../../assets/img/blog/img2.JPG" alt="contact" height="502" width="607">
-                    </div>
-                    <div class="contact-content">
-                        <h3 class="contact-title">Office Information</h3>
-                        <div class="contact-list">
-                            <ul>
-                                <li>Kazanchis ,Glory Bldg,</li>
-                                <li>Glory Real State Co., Ltd.</li>
-                                <li>2nd Floor Office No.209</li>
-                      
-                            </ul>
-                        </div>
-                        <div class="phone-box">
-                        
-
-                            <div class="item-lebel">Telephone :</div>
-                            <div class="phone-number"> 0946222223 / 0946222224</div>
-                            <div class="item-icon"><i class="fas fa-phone-alt"></i></div>
-                        </div>
-                        <div class="social-box">
-                            <div class="item-lebel">Social Share :</div>
-                            <ul class="item-social">
-                                <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="https://vimeo.com/"><i class="fab fa-vimeo-v"></i></a></li>
-                                <li><a href="https://www.pinterest.com/"><i class="fab fa-pinterest-p"></i></a></li>
-                                <li><a href="https://web.whatsapp.com/"><i class="fab fa-whatsapp"></i></a></li>
-                            </ul>
-                            <div class="item-icon"><i class="fas fa-share-alt"></i></div>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="contact-box1">
+          <div class="contact-img">
+            <img src="../../../assets/img/blog/img2.JPG" alt="contact" height="502" width="607">
+          </div>
+          <div class="contact-content">
+            <h3 class="contact-title">Office Information</h3>
+            <div class="contact-list">
+              <ul>
+                <li *ngFor="let data of locations">
+                  {{data?.attributes?.name}}
+                </li>
+              </ul>
             </div>
-        </div>
-    </div>
-    <div class="" style="background-color: #e9f0e6; padding: 50px;">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="contact-box2">
-                <iframe
-                  src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=9.013115854689978,%2038.773961567773284+(Glory%20building)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-                  width="600"
-                  height="550"
-                  style="border: 0;"
-                  allowfullscreen=""
-                  loading="lazy"
-                ></iframe>
-                <div class="contact-content">
-                  <h3 class="contact-title">Leave a Message</h3>
-                  <form
-                    class="contact-box rt-contact-form"
-                    [formGroup]="contactForm"
-                    (ngSubmit)="submitForm()"
-                  >
-                    <div class="row">
-                      <div class="form-group col-lg-6">
-                        <label>Name *</label>
-                        <input type="text" class="form-control" formControlName="fname" placeholder="First Name*" required>
-                        <div class="help-block with-errors"></div>
-                      </div>
-                      <div class="form-group col-lg-6">
-                        <label>Phone *</label>
-                        <input type="text" class="form-control" formControlName="phone" placeholder="Phone*" required>
-                        <div class="help-block with-errors"></div>
-                      </div>
-                      <div class="form-group col-lg-12">
-                        <label>Message *</label>
-                        <textarea formControlName="comment" class="form-text" placeholder="Message" cols="30" rows="5" required></textarea>
-                        <div class="help-block with-errors"></div>
-                      </div>
-                      <div class="form-group col-lg-12">
-                        <button type="submit" class="item-btn" [disabled]="contactForm.invalid">Send message</button>
-                      </div>
-                    </div>
-                    <div class="form-response">{{ formResponse }}</div>
-                  </form>
-                </div>
-              </div>
+            <div class="phone-box">
+
+
+              <div class="item-lebel">Telephone :</div>
+              <div *ngFor="let data of phones" class="phone-number">{{data?.attributes?.number}}</div>
+              <div class="item-icon"><i class="fas fa-phone-alt"></i></div>
+            </div>
+            <div class="social-box">
+              <div class="item-lebel">Social Share :</div>
+              <ul class="item-social">
+                <li *ngFor="let data of social_media">
+                  <a href={{data?.attributes?.link}}>
+                    <i class="fab fa-{{data?.attributes?.name}}"></i>
+                  </a>
+                </li>
+
+              </ul>
+              <div class="item-icon"><i class="fas fa-share-alt"></i></div>
             </div>
           </div>
         </div>
       </div>
-   
+    </div>
+  </div>
+  <div class="" style="background-color: #e9f0e6; padding: 50px;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="contact-box2">
+            <iframe
+              src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=9.013115854689978,%2038.773961567773284+(Glory%20building)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+              width="600" height="550" style="border: 0;" allowfullscreen="" loading="lazy"></iframe>
+            <div class="contact-content">
+              <h3 class="contact-title">Leave a Message</h3>
+              <form class="contact-box rt-contact-form" [formGroup]="contactForm" (ngSubmit)="submitForm()">
+                <div class="row">
+                  <div class="form-group col-lg-6">
+                    <label>Name *</label>
+                    <input type="text" class="form-control" formControlName="fname" placeholder="First Name*" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group col-lg-6">
+                    <label>Phone *</label>
+                    <input type="text" class="form-control" formControlName="phone" placeholder="Phone*" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group col-lg-12">
+                    <label>Message *</label>
+                    <textarea formControlName="comment" class="form-text" placeholder="Message" cols="30" rows="5"
+                      required></textarea>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group col-lg-12">
+                    <button type="submit" class="item-btn" [disabled]="contactForm.invalid">Send message</button>
+                  </div>
+                </div>
+                <div class="form-response">{{ formResponse }}</div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 <app-footer></app-footer>

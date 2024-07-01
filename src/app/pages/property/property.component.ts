@@ -19,7 +19,7 @@ export class PropertyComponent implements OnInit {
   pages: any[] | any;
   propertie: any;
   value: number = 1;
-  highValue: number = 4;
+  highValue: number = 15;
   options: Options = {
     floor: 1,
     ceil: 15,
@@ -27,8 +27,8 @@ export class PropertyComponent implements OnInit {
   Propertyparam: propertyParams = {
     Category: '',
     Location: '',
-    BedsMin: 0,
-    BedsMax: 0,
+    BedsMin: 1,
+    BedsMax: 15,
     PropertyType: '',
     Query: '',
   };
@@ -43,6 +43,8 @@ export class PropertyComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       if (Object.keys(params).length > 0) {
         this.Propertyparam = params as propertyParams;
+        this.value = this.Propertyparam.BedsMin;
+        this.highValue = this.Propertyparam.BedsMax;
       }
     });
     this.currentPage = 1;
@@ -51,11 +53,14 @@ export class PropertyComponent implements OnInit {
   }
 
   getHomeProperties() {
-    console.log(this.value, this.highValue);
-    this.Propertyparam.BedsMin = this.value;
-    this.Propertyparam.BedsMax = this.highValue;
+    this.Propertyparam = {
+      ...this.Propertyparam,
+      BedsMax: this.highValue,
+      BedsMin: this.value,
+    };
     this.homeService.getHomeProperty(this.Propertyparam).subscribe({
       next: (res) => {
+        console.log('res', res);
         this.properties = res.data;
         this.totalPages = Math.ceil(this.properties.length / this.itemsPerPage);
         this.updatePagination();

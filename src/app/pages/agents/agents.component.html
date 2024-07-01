@@ -9,14 +9,14 @@
             </div>
         </div>
         <div class="row">
-            <div  *ngFor="let item of agents" class="col-xl-3 col-lg-6 col-md-6">
+            <div *ngFor="let item of agents" class="col-xl-3 col-lg-6 col-md-6">
                 <div class="team-box1 wow fadeInUp" data-wow-delay=".6s">
                     <div class="item-img">
                         <a href="agent-lists1.html">
                             <img [src]="getImagePath(item.attributes.image)" alt="blog" width="510" height="340">
                         </a>
-              
-                                          </div>
+
+                    </div>
                     <div class="item-content">
                         <div class="item-title">
                             <h3><a href="agent-lists1.html">{{item.attributes.name}}</a></h3>
@@ -30,7 +30,7 @@
                 </div>
             </div>
 
-     
+
         </div>
     </div>
 </section>
