@@ -33,6 +33,11 @@ import { HomeCitesComponent } from './pages/home/home-cites/home-cites.component
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.component';
 import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { SisterComponent } from './pages/sister/sister.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
+import { DataViewModule } from 'primeng/dataview';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +64,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     HomeCitesComponent,
     BlogComponent,
     BlogDetailComponent,
+    SisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,6 +76,11 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
     ReactiveFormsModule,
     FormsModule,
     NgxSliderModule,
+    DropdownModule,
+    InputTextModule,
+    DropdownModule,
+    ButtonModule,
+    DataViewModule,
   ],
   providers: [
     {

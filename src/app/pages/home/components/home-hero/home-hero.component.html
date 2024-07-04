@@ -14,7 +14,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="row center">
-                                        <div class="col-lg-6 pl-15">
+                                        <div class="col-lg-3 pl-15">
                                             <div class="rld-single-select">
                                                 <div class="rld-single-input item">
                                                     <input type="text" placeholder="Enter Keyword here..." name="query"
@@ -23,7 +23,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 pl-15">
+                                        <div class="col-lg-3 pl-15">
                                             <div class="rld-single-select ml-22">
                                                 <select [(ngModel)]="Propertyparam.Category"
                                                     class="select single-select" *ngIf="type&&type[0]">
@@ -34,12 +34,35 @@
                                             </div>
 
                                         </div>
+                                        <div class="col-lg-3 pl-15">
+                                            <div class="rld-single-select item">
+                                                <select [(ngModel)]="Propertyparam.Location" *ngIf="sites&&sites[0]"
+                                                    class="select single-select mr-0">
+                                                    <option value="1">All Sites</option>
+                                                    <option *ngFor="let item of sites"
+                                                        [value]="item.attributes.sitename">{{item.attributes.sitename}}
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <!--  -->
+                                        <div class="col-lg-3 pl-15">
+                                            <div class="rld-single-select">
+                                                <div class="rld-single-input item">
+                                                    <input type="number" placeholder="Number of beds" name="query"
+                                                        [(ngModel)]="Propertyparam.Beds">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
 
                         </div>
-                        <div class="rld-main-search">
+                        <!-- <div class="rld-main-search">
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div class="row center">
@@ -69,15 +92,13 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> -->
                         <div class="filter-button-area">
                             <a class="filter-btn" (click)="searchProperties()"><span>Search</span><i
                                     class="fas fa-search"></i></a>
                         </div>
-
-
-                        <!-- <p class="item-para wow fadeInUp" data-wow-delay=".4s">{{homeHero&&homeHero.attributes.motto2}}
-                        </p> -->
+                        <p class="item-para wow fadeInUp" data-wow-delay=".4s">{{homeHero&&homeHero.attributes.motto2}}
+                        </p>
                     </div>
 
                 </div>

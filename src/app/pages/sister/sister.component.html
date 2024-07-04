@@ -1,0 +1,27 @@
+<app-nav2></app-nav2>
+<section class="about-wrap2" style="background-color: #f5f8fd;">
+    <div *ngFor="let item of aboutus " class="container">
+        <div class="row flex-row-reverse flex-lg-row">
+            <div class="col-xl-6 col-lg-6">
+                <div class="about-img">
+                    <img [src]="getImagePath(client.attributes.image)" alt="about" width="746" height="587">
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6">
+                <div class="about-box3 wow fadeInUp" data-wow-delay=".2s">
+                    <span class="item-subtitle">About Us</span>
+                    <h2 class="item-title">{{client.attributes.title}}</h2>
+                    <h4> {{client.attributes.subtitel}}</h4>
+                    <p>
+                        {{client.attributes.description}}
+                    </p>
+                </div>
+                <div class="about-box3 wow fadeInUp" data-wow-delay=".2s" [innerHTML]="client.attributes.about_us">
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<app-footer></app-footer>

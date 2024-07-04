@@ -19,4 +19,7 @@ export class ContactService {
   getAllSocialMedia() {
     return this.http.get<any>(this.baseUrl + '/social-medias');
   }
+  getAllEmail() {
+    return this.http.get<any>(this.baseUrl + '/emails');
+  }
 }

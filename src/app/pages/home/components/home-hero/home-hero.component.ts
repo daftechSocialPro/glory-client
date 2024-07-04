@@ -19,17 +19,10 @@ export class HomeHeroComponent implements OnInit {
   keywords: any;
   selectedType: any;
   selectedSite: any;
-  value: number = 1;
-  highValue: number = 4;
-  options: Options = {
-    floor: 1,
-    ceil: 15,
-  };
   Propertyparam: propertyParams = {
     Category: '',
     Location: '',
-    BedsMin: 1,
-    BedsMax: 15,
+    Beds: 1,
     PropertyType: '',
     Query: '',
   };

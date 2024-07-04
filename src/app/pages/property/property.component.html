@@ -6,12 +6,12 @@
                 <div class="widget widget-advanced-search">
                     <h3 class="widget-subtitle">Advanced Search</h3>
                     <form class="map-forms map-form-style-2">
-                        <input [(ngModel)]="Propertyparam.Query" type="text" class="form-control"
+                        <input [(ngModel)]="Query" type="text" class="form-control"
                             placeholder="What are you looking for?" name="query">
                         <div class="row">
                             <div class="col-lg-12 pl-15 mb-0">
                                 <div class="rld-single-select">
-                                    <select [(ngModel)]="Propertyparam.PropertyType" class="select single-select mr-0"
+                                    <select [(ngModel)]="PropertyType" class="select single-select mr-0"
                                         name="propertyType">
                                         <option value="">All Types</option>
                                         <option value="Apartment">Apartment</option>
@@ -22,8 +22,7 @@
                             </div>
                             <div class="col-lg-12 pl-15 mb-0">
                                 <div class="rld-single-select">
-                                    <select name="category" [(ngModel)]="Propertyparam.Category"
-                                        class="select single-select mr-0">
+                                    <select name="category" [(ngModel)]="Category" class="select single-select mr-0">
                                         <option value="">All Categories</option>
                                         <option value="For Rent">For Rent</option>
                                         <option value="For Sell">For Sell</option>
@@ -32,8 +31,7 @@
                             </div>
                             <div class="col-lg-12 pl-15">
                                 <div class="rld-single-select">
-                                    <select [(ngModel)]="Propertyparam.Location" class="select single-select mr-0"
-                                        name="location">
+                                    <select [(ngModel)]="Location" class="select single-select mr-0" name="location">
                                         <option value="">All Locations</option>
                                         <option value="Hayahulet">Hayahulet</option>
                                         <option value="Downey">Downey, California</option>
@@ -44,8 +42,8 @@
                                 <div class="rld-single-select">
                                     <label for="beds">Number of Beds</label>
                                     <div class="custom-slider">
-                                        <ngx-slider [(value)]="value" [(highValue)]="highValue"
-                                            [options]="options"></ngx-slider>
+                                        <input type="number" placeholder="Number of beds" name="beds"
+                                            [(ngModel)]=" Beds">
                                     </div>
                                 </div>
                             </div>

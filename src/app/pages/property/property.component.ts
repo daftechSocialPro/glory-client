@@ -18,17 +18,15 @@ export class PropertyComponent implements OnInit {
   totalPages: any;
   pages: any[] | any;
   propertie: any;
-  value: number = 1;
-  highValue: number = 15;
-  options: Options = {
-    floor: 1,
-    ceil: 15,
-  };
+  Category!: string;
+  Location!: string;
+  Beds!: number;
+  Query!: string;
+  PropertyType!: string;
   Propertyparam: propertyParams = {
     Category: '',
     Location: '',
-    BedsMin: 1,
-    BedsMax: 15,
+    Beds: 1,
     PropertyType: '',
     Query: '',
   };
@@ -43,10 +41,13 @@ export class PropertyComponent implements OnInit {
     this.route.queryParams.subscribe((params) => {
       if (Object.keys(params).length > 0) {
         this.Propertyparam = params as propertyParams;
-        this.value = this.Propertyparam.BedsMin;
-        this.highValue = this.Propertyparam.BedsMax;
+        this.Category = this.Propertyparam.Category;
+        this.Beds = this.Propertyparam.Beds;
+        this.Location = this.Propertyparam.Location;
+        this.Query = this.Propertyparam.Query;
       }
     });
+
     this.currentPage = 1;
     this.itemsPerPage = 5;
     this.getHomeProperties();
@@ -55,12 +56,14 @@ export class PropertyComponent implements OnInit {
   getHomeProperties() {
     this.Propertyparam = {
       ...this.Propertyparam,
-      BedsMax: this.highValue,
-      BedsMin: this.value,
+      Category: this.Category,
+      Location: this.Location,
+      Beds: this.Beds,
+      PropertyType: this.PropertyType,
+      Query: this.Query,
     };
     this.homeService.getHomeProperty(this.Propertyparam).subscribe({
       next: (res) => {
-        console.log('res', res);
         this.properties = res.data;
         this.totalPages = Math.ceil(this.properties.length / this.itemsPerPage);
         this.updatePagination();
@@ -95,8 +98,7 @@ export class PropertyComponent implements OnInit {
 export interface propertyParams {
   Category: string;
   Location: string;
-  BedsMin: number;
-  BedsMax: number;
+  Beds: number;
   PropertyType: string;
   Query: string;
 }

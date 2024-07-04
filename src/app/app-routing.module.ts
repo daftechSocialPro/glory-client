@@ -11,27 +11,25 @@ import { PropertyComponent } from './pages/property/property.component';
 import { AgentsComponent } from './pages/agents/agents.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.component';
+import { SisterComponent } from './pages/sister/sister.component';
 
 const routes: Routes = [
-
-
-  {path:'',component:HomeComponent},
+  { path: '', component: HomeComponent },
   { path: 'propertydetail/:id', component: PropertiDetailComponent },
   { path: 'contact', component: ContactusComponent },
-  { path: 'about', component: AboutComponent},
+  { path: 'about', component: AboutComponent },
   { path: 'property', component: PropertyComponent },
-  { path: 'management', component: ManagementComponent},
-  { path: 'agents', component: AgentsComponent},
-  { path: 'blogs', component: BlogComponent},
+  { path: 'management', component: ManagementComponent },
+  { path: 'agents', component: AgentsComponent },
+  { path: 'blogs', component: BlogComponent },
   { path: 'blog/:id', component: BlogDetailComponent },
+  { path: 'client/:id', component: SisterComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: '**', redirectTo: '' } 
-
+  { path: '**', redirectTo: '' },
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

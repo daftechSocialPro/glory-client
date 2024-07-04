@@ -19,6 +19,9 @@ export class HomeService {
   getHomeClients() {
     return this.http.get<any>(this.baseUrl + '/clients?populate=*');
   }
+  getHomeClientsById(id: string) {
+    return this.http.get<any>(this.baseUrl + `/clients/${id}?populate=*`);
+  }
 
   getHomeProperty(param?: propertyParams) {
     let params = new HttpParams();
@@ -35,12 +38,10 @@ export class HomeService {
     if (param?.Query) {
       params = params.append('filters[name][$containsi]', param?.Query);
     }
-    if (param?.BedsMin !== undefined) {
-      params = params.append('filters[beds][$gte]', param.BedsMin.toString());
+    if (param?.Beds !== undefined) {
+      params = params.append('filters[beds][$eq]', param.Beds.toString());
     }
-    if (param?.BedsMax !== undefined) {
-      params = params.append('filters[beds][$lte]', param.BedsMax.toString());
-    }
+
     return this.http.get<any>(this.baseUrl + '/properties?populate=*', {
       params: params,
     });
