@@ -38,8 +38,8 @@ export class HomeService {
     if (param?.Query) {
       params = params.append('filters[name][$containsi]', param?.Query);
     }
-    if (param?.Beds !== undefined) {
-      params = params.append('filters[beds][$eq]', param.Beds.toString());
+    if (param?.Beds) {
+      params = params.append('filters[beds][$eq]', param?.Beds.toString());
     }
 
     return this.http.get<any>(this.baseUrl + '/properties?populate=*', {

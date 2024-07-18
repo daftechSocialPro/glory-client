@@ -18,13 +18,7 @@ export class HomeHeroComponent implements OnInit {
   keywords: any;
   selectedType: any;
   selectedSite: any;
-  Propertyparam: propertyParams = {
-    Category: '',
-    Location: '',
-    Beds: 1,
-    PropertyType: '',
-    Query: '',
-  };
+  Propertyparam!: propertyParams;
 
   ngOnInit(): void {
     this.getHomeHero();
@@ -74,7 +68,6 @@ export class HomeHeroComponent implements OnInit {
     this.homeHeroImage = this.commonService.createImagePath(
       image.data.attributes.url
     );
-    console.log(this.homeHeroImage);
   }
   searchProperties() {
     this.router.navigate(['/property'], {

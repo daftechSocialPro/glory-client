@@ -18,10 +18,10 @@ export class PropertyComponent implements OnInit {
   totalPages: any;
   pages: any[] | any;
   propertie: any;
-  Category!: string;
-  Location!: string;
-  Beds!: number;
-  Query!: string;
+  Category!: string | null;
+  Location!: string | null;
+  Beds!: number | null;
+  Query!: string | null;
   PropertyType!: string;
   Propertyparam: propertyParams = {
     Category: '',
@@ -96,9 +96,9 @@ export class PropertyComponent implements OnInit {
 }
 
 export interface propertyParams {
-  Category: string;
-  Location: string;
-  Beds: number;
-  PropertyType: string;
-  Query: string;
+  Category: string | null;
+  Location: string | null;
+  Beds: number | null;
+  PropertyType: string | null;
+  Query: string | null;
 }
