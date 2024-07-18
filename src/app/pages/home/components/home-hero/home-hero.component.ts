@@ -3,7 +3,6 @@ import { CommonService } from 'src/app/service/common.service';
 import { HomeService } from 'src/app/service/home.service';
 import { Router } from '@angular/router';
 import { propertyParams } from 'src/app/pages/property/property.component';
-import { Options } from '@angular-slider/ngx-slider';
 
 @Component({
   selector: 'app-home-hero',

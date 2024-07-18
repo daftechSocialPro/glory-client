@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:1337/api',
-  assetUrl: 'http://localhost:1337',
+  baseUrl: 'https://user.gloryrealestateplc.com/api',
+  assetUrl: 'https://user.gloryrealestateplc.com',
 };
 
 /*
