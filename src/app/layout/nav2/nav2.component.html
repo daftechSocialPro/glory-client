@@ -1,68 +1,112 @@
-<div id="header-menu" class="header-menu menu-layout1" style="background-color: #0F986A;">
-    <div class="container d-none d-lg-block">
-        <div class="row d-flex align-items-center">
-            <div class="col-xl-2 col-lg-2">
-                <div class="logo-area">
-                    <a href="index.html" class="temp-logo">
-                        <img src="../../../assets/img/logo/logo1.jpg" width="157" height="40" alt="logo" class="img-fluid">
-                    </a>
+<header class="header" style="background-color: #0F986A;">
+    <!-- <div id="header-topbar" class="header-topbar">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-4 d-flex">
+                    <ul class="topbar-left">
+                        <li class="item-location">
+                            <i class="fas fa-map-marker-alt">
+                            </i>
+                            <span style="color: white;">
+                                {{locations[0]?.attributes?.name}}
+                            </span>
+                            <i class="fas fa-map-phone-alt">
+                            </i>
+
+                        </li>
+
+                    </ul>
                 </div>
-            </div>
-            <div class="col-xl-8 col-lg-8 d-flex justify-content-center position-static">
-                <nav id="dropdown" class="template-main-menu">
-                  <ul>
-                    <li>
-<<<<<<< HEAD
-                      <a routerLink="/home" routerLinkActive="active" >Home</a>
-=======
-                      <a routerLink="/" >Home</a>
->>>>>>> f5338362f21d00a245c612e4c137ce549ac274e1
-                    </li>
-                    <li>
-                      <a routerLink="/about" routerLinkActive="active">About</a>
-                    </li>
-                    <li>
-                      <a routerLink="/property" routerLinkActive="active">Property</a>
-                    </li>
-                    <li>
-                      <a routerLink="/blogs" routerLinkActive="active">Blog</a>
-                    </li>
-                    <li>
-                      <a routerLink="/management" routerLinkActive="active">Management</a>
-                    </li>
-                    <li>
-                      <a routerLink="/agents" routerLinkActive="active">Agents</a>
-                    </li>
-                    <li>
-                      <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
-                    </li>
-                  </ul>
-                </nav>
-            </div>
-            <div class="col-xl-2 col-lg-2 d-flex justify-content-end">
-                <div class="header-action-layout1">
-                    <ul class="action-list">
-                      
-                        <li class="listing-button">
-                            <a target="_blank" href="https://glorywebsiteadmin.onrender.com/admin" class="listing-btn">
-                                <span>
-                                    <i class="fa fa-sign-in"></i>
-                                </span>
-                                <span class="item-text">Login</span>
-                            </a>
+                <div class="col-lg-4 d-flex">
+                    <ul class="topbar-left">
+                        <li class="item-location">
+                            <i class="fas fa-phone">
+                            </i>
+                            <span *ngFor="let data of phones" style="color: white;">
+                                {{","}} {{data?.attributes?.number}}
+                            </span>
+                            <i class="fas fa-map-phone-alt">
+                            </i>
+
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-4 d-flex justify-content-end">
+                    <ul class="topbar-right">
+                        <li class="social-icon" style="color: white;">
+                            <label style="color: white;">Follow Us On:</label>
+
+                            <a *ngFor="let data of social_media" target="_blank" style="color: white;"
+                                href={{data?.attributes?.link}}><i class="fab fa-{{data?.attributes?.name}}"></i></a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
+    </div> -->
+    <div id="rt-sticky-placeholder"></div>
+    <div id="header-menu" class="header-menu menu-layout1">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-xl-2 col-lg-2">
+                    <div class="logo-area">
+                        <a href="index.html" class="temp-logo">
+                            <img src="../../../assets/img/logo/logo1.jpg" width="157" height="40" alt="logo"
+                                class="img-fluid">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-8 col-lg-8 d-flex justify-content-center position-static">
+                    <nav id="dropdown" class="template-main-menu">
+                        <ul>
+                            <li>
+                                <a routerLink="/">Home</a>
+                            </li>
+                            <li>
+                                <a routerLink="/about" routerLinkActive="active">About</a>
+                            </li>
+                            <li>
+                                <a routerLink="/property" routerLinkActive="active">Property</a>
+                            </li>
+                            <li>
+                                <a routerLink="/blogs" routerLinkActive="active">Blog</a>
+                            </li>
+                            <li>
+                                <a routerLink="/management" routerLinkActive="active">Management</a>
+                            </li>
+                            <li>
+                                <a routerLink="/agents" routerLinkActive="active">Agents</a>
+                            </li>
+                            <li>
+                                <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- <div class="col-xl-2 col-lg-2 d-flex justify-content-end">
+                    <div class="header-action-layout1">
+                        <ul class="action-list">
+                          
+                            <li class="listing-button">
+                                <a target="_blank" href="https://glorywebsiteadmin.onrender.com/admin" class="listing-btn">
+                                    <span>
+                                        <i class="fa fa-sign-in"></i>
+                                    </span>
+                                    <span class="item-text">Login</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+        </div>
     </div>
-</div>
-<div
-    class="rt-header-menu mean-container position-relative"
-    id="meanmenu">
+</header>
+<div class="rt-header-menu mean-container position-relative" id="meanmenu">
     <div class="mean-bar">
         <a href="index.html">
-            <img src='../../../assets/img/logo/logo1.jpg' alt='logo' class='img-fluid'/>
+            <img src='../../../assets/img/logo/logo1.jpg' alt='logo' class='img-fluid' />
         </a>
         <div class="mean-bar--right">
             <div class="actions search">
@@ -85,32 +129,35 @@
         <div class="offscreen-navigation">
             <nav class="menu-main-primary-container">
                 <ul class="menu">
-                    <li class="list menu-item-parent menu-item-has-children">
-                        <a routerLink="/">Home</a>
-                     
+                    <li>
+                        <a routerLink="/home" routerLinkActive="active">Home</a>
+
                     </li>
-                    <li >
+                    <li>
                         <a routerLink="/about" routerLinkActive="active">About</a>
-                      
+
                     </li>
                     <li>
                         <a routerLink="/property" routerLinkActive="active">Property</a>
-                      </li>
-                      <li>
+                    </li>
+                    <li>
+                        <a routerLink="/management" routerLinkActive="active">Management</a>
+                    </li>
+                    <li>
                         <a routerLink="/blogs" routerLinkActive="active">Blog</a>
                     </li>
-                      <li>
-                        <a routerLink="/management" routerLinkActive="active">Management</a>
-                      </li>
-                      <li>
+                    <li>
                         <a routerLink="/agents" routerLinkActive="active">Agents</a>
-                      </li>
-                      <li>
+                    </li>
+                    <li>
                         <a routerLink="/contact" routerLinkActive="active">Contact Us</a>
-                      </li>
-         
+                    </li>
+
                 </ul>
             </nav>
         </div>
     </div>
 </div>
+<br />
+<br />
+<br />

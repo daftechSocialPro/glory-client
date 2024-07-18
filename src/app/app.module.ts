@@ -28,18 +28,16 @@ import { ManagementComponent } from './pages/management/management.component';
 import { Nav2Component } from './layout/nav2/nav2.component';
 import { PropertyComponent } from './pages/property/property.component';
 import { AgentsComponent } from './pages/agents/agents.component';
-<<<<<<< HEAD
-import { ReactiveFormsModule } from '@angular/forms';
-import { HomeCitesComponent } from './pages/home/home-cites/home-cites.component';
-import { BlogComponent } from './pages/blog/blog.component';
-import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.component';
-import { FormsModule } from '@angular/forms';
-=======
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeCitesComponent } from './pages/home/home-cites/home-cites.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.component';
->>>>>>> f5338362f21d00a245c612e4c137ce549ac274e1
+import { NgxSliderModule } from '@angular-slider/ngx-slider';
+import { SisterComponent } from './pages/sister/sister.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
+import { DataViewModule } from 'primeng/dataview';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +63,8 @@ import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.compon
     AgentsComponent,
     HomeCitesComponent,
     BlogComponent,
-    BlogDetailComponent
+    BlogDetailComponent,
+    SisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,16 +74,21 @@ import { BlogDetailComponent } from './pages/blog/blog-detail/blog-detail.compon
     CarouselModule,
     GalleriaModule,
     ReactiveFormsModule,
-    FormsModule
-   
+    FormsModule,
+    NgxSliderModule,
+    DropdownModule,
+    InputTextModule,
+    DropdownModule,
+    ButtonModule,
+    DataViewModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthHeaderIneterceptor,
       multi: true,
-    }
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
